@@ -1,0 +1,71 @@
+
+        /* 省
+        $province_data = Storage::get('province.json');
+        $province_data = json_decode($province_data, true);
+        foreach($province_data as $data){
+            DB::table('areas')->insert([
+                'id'        => $data['areaId'],
+                'area_name' => $data['areaName'],
+                'level'     => $data['level'],
+                'parent_id' => $data['parentId'],
+                'status'    => $data['status'],
+            ]);
+        }
+        */
+
+        /* 市
+        $city_data = Storage::get('city.json');
+        $city_data = json_decode($city_data, true);
+        $city_data = array_collapse($city_data);
+        foreach($city_data as $data){
+            DB::table('areas')->insert([
+                'id'        => $data['areaId'],
+                'area_name' => $data['areaName'],
+                'level'     => $data['level'],
+                'parent_id' => $data['parentId'],
+                'status'    => $data['status'],
+            ]);
+        }
+        */
+
+        /* 区县
+        $county_data = Storage::get('county.json');
+        $county_data = json_decode($county_data, true);
+        $county_data = array_collapse($county_data);
+        foreach($county_data as $data){
+            DB::table('areas')->insert([
+                'id'        => $data['areaId'],
+                'area_name' => $data['areaName'],
+                'level'     => $data['level'],
+                'parent_id' => $data['parentId'],
+                'status'    => $data['status'],
+            ]);
+        }
+        */
+
+        /* 乡镇
+        set_time_limit(1800);
+        $town_data = Storage::get('town.json');
+        $town_data = explode("\n", $town_data);
+        foreach($town_data as $v){
+            $v = trim($v);
+            if(!empty($v)){
+                $v = json_decode($v, true);
+                foreach($v as $vv){
+                    if(!empty($vv)){
+                        foreach($vv as $data){
+                            if(!DB::table('areas')->where('id', $data['areaId'])->first(['id'])){
+                                DB::table('areas')->insert([
+                                    'id'        => $data['areaId'],
+                                    'area_name' => $data['areaName'],
+                                    'level'     => $data['level'],
+                                    'parent_id' => $data['parentId'],
+                                    'status'    => $data['status'],
+                                ]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        */

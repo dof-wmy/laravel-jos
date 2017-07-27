@@ -1,0 +1,23 @@
+{
+  "name": "wmy/laravel-jos",
+  "description": "laravel-jos",
+  "keywords": [
+    "wmy","jos","laravel"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "WMY",
+      "email": "mengyang1229@126.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Wmy\\Jos\\": "src/"
+    }
+  },
+  "require": {
+    "illuminate/support": "5.4.*",
+    "wmy/wmy": "1.0.*"
+  }
+}
